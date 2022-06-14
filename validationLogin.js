@@ -7,7 +7,7 @@ const router = express.Router();
 // https://www.geeksforgeeks.org/node-js-crypto-randombytes-method/
 const crypto = require('crypto');
 
-//  a constante token  retorna um hash que tem X Byte dentro de um Stringonde cada Byte é exibido em valor hexadecimal. O byte é é exibido usando 2 caracteres em hexadecimal, ou seja, 8 vira 16 caracteres.
+//  a constante token  retorna um hash que tem X byte dentro de um string onde cada byte é exibido em valor hexadecimal. O byte é é exibido usando 2 caracteres em hexadecimal, ou seja, 8 vira 16 caracteres.
 const token = crypto.randomBytes(8).toString('hex');
 console.log(token);
 

@@ -6,11 +6,15 @@ const bodyParser = require('body-parser');
 
 const validationLogin = require('./validationLogin');
 
+const addTalker = require('./addTalker');
+
 const app = express();
 
 app.use(bodyParser.json());
 
 app.use('/login', validationLogin);
+
+app.use('/talker', addTalker);
 
 const HTTP_OK_STATUS = 200;
 const PORT = '3000';
@@ -54,21 +58,6 @@ app.get('/talker/:id', async (req, res) => {
   } 
     return res.status(404).json({ message: 'Pessoa palestrante não encontrada' });
 });
-
-// Requisito 03 - Crie o endpoint POST /login
-// https://www.geeksforgeeks.org/node-js-crypto-randombytes-method/
-// const token = crypto.randomBytes(8).toString('hex');
-
-// app.get('/login', (req, res) => {
-//   const { email, password } = req.body;
-//   if (email === 'email@email.com' && password === '123456') {
-//     token.
-//     return res.end();
-//   }
-
-//   res.json({ email: 'email@email.com', password: '123456' });
-//   res.get({ token });
-// });
 
 app.listen(PORT, () => {
   console.log('Online');
