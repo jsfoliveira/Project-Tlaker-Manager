@@ -7,6 +7,7 @@ const router = express.Router();
 // https://www.geeksforgeeks.org/node-js-crypto-randombytes-method/
 const crypto = require('crypto');
 
+//  a constante token  retorna um hash que tem X Byte dentro de um Stringonde cada Byte é exibido em valor hexadecimal. O byte é é exibido usando 2 caracteres em hexadecimal, ou seja, 8 vira 16 caracteres.
 const token = crypto.randomBytes(8).toString('hex');
 console.log(token);
 
@@ -47,5 +48,5 @@ router.post('/', validationEmail, validationPassword, (req, res) => {
   res.status(200).json({ token });
 });
 
-// só preciso  colocar http POST :3000/login email='juliana@hotmail.com' password='123456', que vai gerar o token
+// só preciso  colocar $http POST :3000/login email='juliana@hotmail.com' password='123456', que vai gerar o token.
 module.exports = router;
