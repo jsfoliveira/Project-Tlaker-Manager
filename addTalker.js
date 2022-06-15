@@ -102,6 +102,33 @@ return res.status(201).json({ ...addTalker });
 .catch((error) => res.status(400).json(error));
 });
 
+// Requisito 6
+router.put('/:id',
+validToken,
+validationName,
+validationAge,
+validationTalk,
+validationWatchedAt,
+validationRate,
+(req, res) => {
+fs.readFile(toker, 'utf8')
+.then((el) => JSON.parse(el))
+.then((element) => {
+  const { id } = req.params;
+  const talkerFiltred = element.filter((talker) => talker.id !== (id));
+
+  const modification = { ...req.body, id: (+id) };
+
+  talkerFiltred.push(modification);
+  const result = talkerFiltred;
+
+  fs.writeFile(toker, JSON.stringify(result));
+  return res.status(200).json(modification);
+})
+
+.catch((err) => res.status(400).json(err));
+});
+
 // Requisito 7
 router.delete('/:id',
 validToken,
