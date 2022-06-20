@@ -115,6 +115,7 @@ fs.readFile(toker, 'utf8')
 .then((el) => JSON.parse(el))
 .then((element) => {
   const { id } = req.params;
+  // eu preciso buscar os talkers que são diferentes do id que estou querendo alterar.
   const talkerFiltred = element.filter((talker) => talker.id !== (id));
 
   const modification = { ...req.body, id: (+id) };

@@ -8,8 +8,10 @@ const router = express.Router();
 const crypto = require('crypto');
 
 //  a constante token  retorna um hash que tem X byte dentro de um string onde cada byte é exibido em valor hexadecimal. O byte é é exibido usando 2 caracteres em hexadecimal, ou seja, 8 vira 16 caracteres.
-const token = crypto.randomBytes(8).toString('hex');
-console.log(token);
+function generateToken() {
+  return crypto.randomBytes(8).toString('hex');
+} 
+// console.log(token);
 
 const validationEmail = (req, res, next) => {
   // https://stackoverflow.com/questions/6646613/please-explain-this-e-mail-validation-regular-expression
@@ -45,7 +47,8 @@ const validationPassword = (req, res, next) => {
 
 // essa rota vai exportar as duas funções de validação. A chave token tem como valor a constante token criada nesse arquivo.
 router.post('/', validationEmail, validationPassword, (req, res) => {
-  res.status(200).json({ token });
+  const token = generateToken();
+  return res.status(200).json({ token });
 });
 
 // só preciso  colocar $http POST :3000/login email='juliana@hotmail.com' password='123456', que vai gerar o token.
