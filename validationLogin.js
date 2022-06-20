@@ -50,6 +50,6 @@ router.post('/', validationEmail, validationPassword, (req, res) => {
   const token = generateToken();
   return res.status(200).json({ token });
 });
-
+// finalizado
 // só preciso  colocar $http POST :3000/login email='juliana@hotmail.com' password='123456', que vai gerar o token.
 module.exports = router;
