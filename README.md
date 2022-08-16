@@ -8,7 +8,7 @@ Foi construído uma aplicação de cadastro de talkers (palestrantes) em que foi
 ## :rocket:Começando
 Esse projeto foi proposto pelo curso de desenvolvimento web da Trybe.
 ### Desenvolvimento
-Esse proejto foi desenvolvido no bloco de back-end, usei query de MySQL.
+Esse projeto foi desenvolvido no bloco de back-end, usei query de MySQL.
 ### Commits
 Os commits foram feitos de acordo com os requisitos finalizados.
 ### Branch
